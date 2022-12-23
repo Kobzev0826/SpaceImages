@@ -50,6 +50,3 @@ def get_epic_links():
   return urls
 
 
-# links = get_random_images_links(5)
-# print(links)
-get_epic_links()

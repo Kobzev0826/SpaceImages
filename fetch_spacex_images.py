@@ -1,4 +1,4 @@
-import requests, os, sys, argparse
+import sys, argparse
 import spacexAPI
 import download_images
 

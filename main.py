@@ -55,7 +55,7 @@ def fetch_nasa_epic_pictures(dir_path):
         filename, extension = get_filename(url)
         save_image(dir_path, f'{filename}{extension}', image)
 
-
-# fetch_spacex_last_launch('images_spaceX')
-# fetch_nasa_pictures('nasa_pic')
-fetch_nasa_epic_pictures('nasa_epic')
+if __name__=='__mian__':
+    # fetch_spacex_last_launch('images_spaceX')
+    # fetch_nasa_pictures('nasa_pic')
+    fetch_nasa_epic_pictures('nasa_epic')
