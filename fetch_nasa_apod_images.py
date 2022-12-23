@@ -1,14 +1,13 @@
 import argparse
 import nasaAPI, download_images
 
-
-if __name__=='__main__':
+if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="download images from spacexdata.com")
 
     parser.add_argument(
         '-noi',
         '--num_of_images',
-        type = int,
+        type=int,
         default=1,
         help='how many pictures do you want download, default =1'
     )
@@ -22,4 +21,3 @@ if __name__=='__main__':
     app_args = parser.parse_args()
 
     download_images.save_images(app_args.dir_path, nasaAPI.get_random_images_links(app_args.num_of_images))
-

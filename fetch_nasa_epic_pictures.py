@@ -1,8 +1,7 @@
 import argparse, requests
 import nasaAPI, download_images
 
-
-if __name__=='__main__':
+if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="download images from spacexdata.com")
     parser.add_argument(
         '-dir',
