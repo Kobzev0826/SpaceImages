@@ -2,7 +2,7 @@ import os, telegram, sys
 from dotenv import load_dotenv
 
 
-
+CHAT_ID = -1001790326720
 
 
 def read_token():
@@ -20,4 +20,5 @@ def read_token():
 
 if __name__ == '__main__':
     bot = telegram.Bot(token=read_token())
-    bot.send_message(text='Test msg!', chat_id=-1001790326720)
+    # bot.send_message(text='Test msg!', chat_id=CHAT_ID)
+    bot.send_photo(chat_id = CHAT_ID, photo = open('nasa_epic/epic_1b_20221221001752.png','rb'))
