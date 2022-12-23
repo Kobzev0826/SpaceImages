@@ -41,7 +41,7 @@ def get_epic_links():
   urls = []
   for item in data:
     # print(item)
-    print(f'image={item["image"]}  data={item["date"]}')
+    # print(f'image={item["image"]}  data={item["date"]}')
     date_time = item["date"].split()[0].split('-')
     dat = "/".join(date_time)
     cur_url = 'https://api.nasa.gov/EPIC/archive/natural/' + dat
