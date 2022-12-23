@@ -8,7 +8,7 @@ if __name__=='__main__':
         '-dir',
         '--dir_path',
         default='nasa_epic_pictures',
-        help='directory where pictures will be saved, default="nasa_apod_pictures"'
+        help='directory where pictures will be saved, default="nasa_epic_pictures"'
     )
     app_args = parser.parse_args()
 

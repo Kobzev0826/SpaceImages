@@ -10,4 +10,3 @@ def get_imageurls_latest(url):
     return urls
 
 
-print(get_imageurls_latest('https://api.spacexdata.com/v5/launches/latest'))
