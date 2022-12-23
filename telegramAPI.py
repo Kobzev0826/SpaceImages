@@ -1,6 +1,5 @@
 import os, telegram, sys
-import time
-import random
+import argparse
 
 from dotenv import load_dotenv
 
@@ -39,4 +38,9 @@ def get_chat_id():
 
 
 if __name__ == '__main__':
-    pass
+    parser = argparse.ArgumentParser(description="upload images ")
+    parser.add_argument('--img_path', help='path to images')
+    app_args = parser.parse_args()
+
+    bot = telegram.Bot(token=read_from_enviroment('TELEGRAM_BOT_TOKEN'))
+    send_photo(bot,app_args.img_path)
