@@ -1,7 +1,10 @@
 import argparse, requests
 import nasaAPI, download_images
+from dotenv import load_dotenv
+
 
 if __name__ == '__main__':
+    load_dotenv()
     parser = argparse.ArgumentParser(description="download images from spacexdata.com")
     parser.add_argument(
         '-dir',
@@ -19,5 +22,5 @@ if __name__ == '__main__':
         response.raise_for_status()
         image = response.content
 
-        filename, extension = download_images.get_filename(url)
+        filename, extension = download_images.get_filename_from_url(url)
         download_images.save_image(app_args.dir_path, f'{filename}{extension}', image)

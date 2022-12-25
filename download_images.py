@@ -8,22 +8,20 @@ def download_image(url):
     return response.content
 
 
-def get_filename(url):
+def get_filename_from_url(url):
     tail = urlparse(os.path.split(url)[-1])
-    return (os.path.splitext(unquote(tail.path)))
+    return os.path.splitext(unquote(tail.path))
 
 
 def save_images(dir_path, links):
     for url in links:
-        filename, extension = get_filename(url)
+        filename, extension = get_filename_from_url(url)
         save_image(f'{dir_path}', f'{filename}{extension}', download_image(url))
 
 
 def save_image(dir_path, filename, image):
-    try:
+    if not os.path.exists(dir_path):
         os.makedirs(dir_path)
-    except FileExistsError:
-        pass
 
     with open(f'{dir_path}/{filename}', 'wb') as file:
         file.write(image)

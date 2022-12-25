@@ -55,7 +55,13 @@ def fetch_nasa_epic_pictures(dir_path):
         filename, extension = get_filename(url)
         save_image(dir_path, f'{filename}{extension}', image)
 
-if __name__=='__mian__':
+if __name__=='__main__':
     # fetch_spacex_last_launch('images_spaceX')
     # fetch_nasa_pictures('nasa_pic')
-    fetch_nasa_epic_pictures('nasa_epic')
+    # fetch_nasa_epic_pictures('nasa_epic')
+    print('start')
+    l = []
+    if l:
+        print('yes')
+    else:
+        print('no')

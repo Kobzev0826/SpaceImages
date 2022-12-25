@@ -2,6 +2,7 @@ import os, telegram, sys
 import time
 import random
 import telegramAPI
+from dotenv import load_dotenv
 
 
 def get_all_pictures_path_from_dir(dir_path):
@@ -14,10 +15,11 @@ def get_all_pictures_path_from_dir(dir_path):
 
 
 if __name__ == '__main__':
+    load_dotenv()
     bot = telegram.Bot(token=telegramAPI.read_from_enviroment('TELEGRAM_BOT_TOKEN'))
     while True:
       pictures = get_all_pictures_path_from_dir(f'{os.getcwd()}')
       random.shuffle(pictures)
       while pictures:
         telegramAPI.send_photo(bot, pictures.pop() )
-        time.sleep(telegramAPI.read_from_enviroment('PAUSE'))
+        time.sleep(int(telegramAPI.read_from_enviroment('PAUSE')))

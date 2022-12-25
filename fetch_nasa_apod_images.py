@@ -1,7 +1,10 @@
 import argparse
 import nasaAPI, download_images
+from dotenv import load_dotenv
+
 
 if __name__ == '__main__':
+    load_dotenv()
     parser = argparse.ArgumentParser(description="download images from spacexdata.com")
 
     parser.add_argument(
