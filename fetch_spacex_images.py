@@ -1,10 +1,9 @@
 import sys, argparse
 import spacexAPI
 import download_images
-from dotenv import load_dotenv
+
 
 if __name__ == '__main__':
-    load_dotenv()
     parser = argparse.ArgumentParser(description="download images from spacexdata.com")
     parser.add_argument('-id', help='id of launch if None download last launch', default='latest')
     parser.add_argument('-dir', '--dir_path',
