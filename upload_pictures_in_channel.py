@@ -20,7 +20,7 @@ if __name__ == '__main__':
     pause = int(telegramAPI.read_from_enviroment('PAUSE'))
     chat_id = telegramAPI.read_from_enviroment('CHAT_ID')
     while True:
-      pictures = get_all_pictures_path_from_dir(f'{os.getcwd()}')
+      pictures = get_all_pictures_path_from_dir({os.getcwd()})
       random.shuffle(pictures)
       while pictures:
         telegramAPI.send_photo(bot, pictures.pop(),chat_id )
