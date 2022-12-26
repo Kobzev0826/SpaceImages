@@ -18,9 +18,10 @@ if __name__ == '__main__':
     load_dotenv()
     bot = telegram.Bot(token=telegramAPI.read_from_enviroment('TELEGRAM_BOT_TOKEN'))
     pause = int(telegramAPI.read_from_enviroment('PAUSE'))
+    chat_id = telegramAPI.read_from_enviroment('CHAT_ID')
     while True:
       pictures = get_all_pictures_path_from_dir(f'{os.getcwd()}')
       random.shuffle(pictures)
       while pictures:
-        telegramAPI.send_photo(bot, pictures.pop(), telegramAPI.get_chat_id() )
+        telegramAPI.send_photo(bot, pictures.pop(),chat_id )
         time.sleep(pause)

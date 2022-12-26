@@ -17,8 +17,6 @@ def send_photo(bot, photo_path,chat_id):
         bot.send_photo(chat_id=chat_id, photo=photo)
 
 
-def get_chat_id():
-    return read_from_enviroment('CHAT_ID')
 
 
 if __name__ == '__main__':
@@ -28,5 +26,5 @@ if __name__ == '__main__':
     app_args = parser.parse_args()
     tg_token = read_from_enviroment('TELEGRAM_BOT_TOKEN')
     bot = telegram.Bot(token=tg_token)
-    send_photo(bot, app_args.img_path,get_chat_id() )
+    send_photo(bot, app_args.img_path,read_from_enviroment('CHAT_ID') )
 
