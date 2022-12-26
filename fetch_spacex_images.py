@@ -14,7 +14,7 @@ if __name__ == '__main__':
 
     urls = spacexAPI.get_imageurls_latest(f'https://api.spacexdata.com/v5/launches/{app_args.id}')
 
-    if urls:
+    if not urls:
         print('Unfortunately, there are no photos of the last run.')
         sys.exit()
 
