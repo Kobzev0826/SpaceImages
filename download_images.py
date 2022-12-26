@@ -2,8 +2,8 @@ import requests, os
 from urllib.parse import urlparse, unquote
 
 
-def download_image(url):
-    response = requests.get(url)
+def download_image(url,params={}):
+    response = requests.get(url,params=params)
     response.raise_for_status()
     return response.content
 

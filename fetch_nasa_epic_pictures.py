@@ -16,11 +16,9 @@ if __name__ == '__main__':
     token = nasaAPI.read_token()
     for url in nasaAPI.get_epic_links(token):
         payload = {
-            "api_key": nasaAPI.read_token(),
+            "api_key": token,
         }
-        response = requests.get(url, params=payload)
-        response.raise_for_status()
-        image = response.content
+        image = download_images.download_image(url,params=payload)
 
         filename, extension = download_images.get_filename_from_url(url)
         download_images.save_image(app_args.dir_path, f'{filename}{extension}', image)
