@@ -4,7 +4,6 @@ import sys, os
 
 def read_token():
     try:
-        # load_dotenv()
         token = os.environ["NASA_API"]
     except:
         try:
@@ -15,8 +14,8 @@ def read_token():
     return token
 
 
-def get_random_images_links(number_of_links):
-    payload = {"api_key": read_token(), "count": number_of_links}
+def get_random_images_links(number_of_links, token):
+    payload = {"api_key": token, "count": number_of_links}
     url = "https://api.nasa.gov/planetary/apod"
     response = requests.get(url, params=payload)
     response.raise_for_status()
@@ -24,10 +23,10 @@ def get_random_images_links(number_of_links):
 
 
 
-def get_epic_links():
+def get_epic_links(token):
     url = 'https://api.nasa.gov/EPIC/api/natural'
     payload = {
-        "api_key": read_token(),
+        "api_key": token,
     }
     response = requests.get(url, params=payload)
     response.raise_for_status()

@@ -22,5 +22,5 @@ if __name__ == '__main__':
     )
 
     app_args = parser.parse_args()
-
-    download_images.save_images(app_args.dir_path, nasaAPI.get_random_images_links(app_args.num_of_images))
+    nasa_token = nasaAPI.read_token()
+    download_images.save_images(app_args.dir_path, nasaAPI.get_random_images_links(app_args.num_of_images, nasa_token))

@@ -13,8 +13,8 @@ if __name__ == '__main__':
         help='directory where pictures will be saved, default="nasa_epic_pictures"'
     )
     app_args = parser.parse_args()
-
-    for url in nasaAPI.get_epic_links():
+    token = nasaAPI.read_token()
+    for url in nasaAPI.get_epic_links(token):
         payload = {
             "api_key": nasaAPI.read_token(),
         }
