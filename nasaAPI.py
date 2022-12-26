@@ -5,12 +5,9 @@ import sys, os
 def read_token():
     try:
         token = os.environ["NASA_API"]
-    except:
-        try:
-            token = os.environ["NASA_API"]
-        except KeyError as e:
-            print(f"Error: {e} \n no token in system environment")
-            sys.exit()
+    except KeyError as e:
+        print(f"Error: {e} \n no token in system environment")
+        sys.exit()
     return token
 
 
@@ -20,7 +17,6 @@ def get_random_images_links(number_of_links, token):
     response = requests.get(url, params=payload)
     response.raise_for_status()
     return [item['url'] for item in response.json()]
-
 
 
 def get_epic_links(token):
