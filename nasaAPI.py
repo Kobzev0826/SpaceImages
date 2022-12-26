@@ -1,6 +1,5 @@
 import requests
 import sys, os
-from dotenv import load_dotenv
 
 
 def read_token():

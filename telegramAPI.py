@@ -1,6 +1,5 @@
 import os, telegram, sys
 import argparse
-
 from dotenv import load_dotenv
 
 
@@ -27,8 +26,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="upload images ")
     parser.add_argument('--img_path', help='path to images')
     app_args = parser.parse_args()
-
     bot = telegram.Bot(token=read_from_enviroment('TELEGRAM_BOT_TOKEN'))
-    # print(bot.get_updates()[0])
     send_photo(bot, app_args.img_path)
 
