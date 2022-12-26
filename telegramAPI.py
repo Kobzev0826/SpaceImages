@@ -12,9 +12,9 @@ def read_from_enviroment(name):
     return token
 
 
-def send_photo(bot, photo_path):
+def send_photo(bot, photo_path,chat_id):
     with open(f'{photo_path}', 'rb') as photo:
-        bot.send_photo(chat_id=get_chat_id(), photo=photo)
+        bot.send_photo(chat_id=chat_id, photo=photo)
 
 
 def get_chat_id():
@@ -26,6 +26,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="upload images ")
     parser.add_argument('--img_path', help='path to images')
     app_args = parser.parse_args()
-    bot = telegram.Bot(token=read_from_enviroment('TELEGRAM_BOT_TOKEN'))
-    send_photo(bot, app_args.img_path)
+    tg_token = read_from_enviroment('TELEGRAM_BOT_TOKEN')
+    bot = telegram.Bot(token=tg_token)
+    send_photo(bot, app_args.img_path,get_chat_id() )
 
