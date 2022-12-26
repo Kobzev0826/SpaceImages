@@ -20,8 +20,7 @@ def save_images(dir_path, links):
 
 
 def save_image(dir_path, filename, image):
-    if not os.path.exists(dir_path):
-        os.makedirs(dir_path)
+    os.makedirs(dir_path,exist_ok=True)
 
     with open(f'{dir_path}/{filename}', 'wb') as file:
         file.write(image)
