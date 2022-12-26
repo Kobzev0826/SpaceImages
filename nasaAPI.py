@@ -30,7 +30,7 @@ def get_epic_links(token):
     urls = []
     for item in response.json():
         date_time = item["date"].split()[0].split('-')
-        cur_url = f'https://api.nasa.gov/EPIC/archive/natural/ {"/".join(date_time)}'
+        cur_url = f'https://api.nasa.gov/EPIC/archive/natural/{"/".join(date_time)}'
         urls.append(f'{cur_url}/png/{item["image"]}.png')
 
     return urls
