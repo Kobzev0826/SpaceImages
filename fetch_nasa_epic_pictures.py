@@ -14,10 +14,11 @@ if __name__ == '__main__':
     )
     app_args = parser.parse_args()
     token = nasaAPI.read_token()
+    payload = {
+        "api_key": token,
+    }
     for url in nasaAPI.get_epic_links(token):
-        payload = {
-            "api_key": token,
-        }
+
         image = download_images.download_image(url,params=payload)
 
         filename, extension = download_images.get_filename_from_url(url)
