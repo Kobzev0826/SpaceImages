@@ -17,6 +17,4 @@ if __name__ == '__main__':
         print('Unfortunately, there are no photos of the last run.')
         sys.exit()
 
-    dir = app_args.dir_path if app_args.dir_path else 'spacex_pictures'
-
     download_images.save_images(dir, urls)
